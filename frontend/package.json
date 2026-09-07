@@ -1,0 +1,65 @@
+{
+  "name": "cyberpet",
+  "version": "1.0.0",
+  "main": "electron/main-prod.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "electron .",
+    "dev:electron": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron . --dev\"",
+    "pack": "vite build && electron-builder --win --dir"
+  },
+  "build": {
+    "appId": "com.cyberpet.app",
+    "productName": "cyberpet",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "electron/**"
+    ],
+    "asarUnpack": [
+      "node_modules/edge-tts-universal/**"
+    ],
+    "extraResources": [
+      {
+        "from": "packaging/app.jar",
+        "to": "app.jar"
+      },
+      {
+        "from": "packaging/jre",
+        "to": "jre"
+      }
+    ],
+    "win": {
+      "icon": "electron/whale-girl.ico",
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "@pixi/core": "^7.4.3",
+    "@pixi/display": "^7.4.3",
+    "edge-tts-universal": "^1.4.0",
+    "pixi-live2d-display": "^0.5.0-beta",
+    "pixi.js": "^7.4.3",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "concurrently": "^9.1.2",
+    "electron": "^38.8.6",
+    "electron-builder": "^26.15.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.4",
+    "vue-tsc": "^2.2.8",
+    "wait-on": "^8.0.3"
+  }
+}
