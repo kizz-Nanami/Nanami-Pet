@@ -1,0 +1,39 @@
+# ===== 依赖与构建产物 =====
+node_modules/
+dist/
+release/
+packaging/
+target/
+out/
+*.class
+
+# ===== 运行时数据（本地生成，不入库） =====
+*.log
+conversation.json
+memory.json
+memory-visual.json
+memory-snapshot.json
+cyberpet-config.json
+cyberpet-ai.json
+.cyberpet-todos.json
+
+# ===== Live2D 模型素材（版权原因不入库，见 README「模型准备」） =====
+frontend/public/live2d/
+
+# ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+*.iml
+HELP.md
+
+# ===== 本地文档与临时文件 =====
+学年设计/
+*.docx
+*.zip
+~$*
+_tmp_*
+frontend/process-ningqi.mjs
+
+# ===== 系统文件 =====
+Thumbs.db
+.DS_Store
