@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Maven固定版本，所有Maven项⽬标准头部 -->
+    <modelVersion>4.0.0</modelVersion>
+    <!-- SpringBoot⽗⼯程，统⼀管控所有组件版本，避免版本冲突 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.7</version>
+    </parent>
+    <!-- 项⽬Maven坐标：唯⼀标识当前后端模块 -->
+    <groupId>com.cyberpet</groupId>
+    <artifactId>cyberpet-backend</artifactId>
+    <version>0.0.1</version>
+    <!-- 全局变量统⼀管理版本，⽅便⼀键升级，教学重点：解耦版本硬编码 -->
+    <properties>
+        <java.version>21</java.version>
+        <spring-ai.version>1.1.4</spring-ai.version>
+    </properties>
+    <dependencies>
+        <!-- Web核⼼启动器：提供Tomcat、HTTP接⼝、SSE服务推送能⼒ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- WebSocket服务端：方案B2实时语音识别，前端PCM流 → 后端桥接 → 百炼 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <!-- 阿里百炼DashScope官方SDK：Recognition类封装实时语音识别的WebSocket协议 -->
+        <!-- exclusion：其传递的 victools jsonschema 4.38 与 Spring AI 所需的 4.31 冲突，
+             会导致 ChatService 初始化时 NoClassDefFoundError，恢复原有版本链 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dashscope-sdk-java</artifactId>
+            <version>2.20.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.victools</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- SpringAI OpenAI兼容客户端：核⼼依赖！
+        阿⾥百炼DashScope提供OpenAI兼容接⼝，复⽤该客户端⽆需单独适配SDK
+        适配通义千问、GPT、⾖包等所有兼容OpenAI协议的⼤模型
+        url
+        -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-openai</artifactId>
+            <version>${spring-ai.version}</version>
+        </dependency>
+        <!-- ChatClient顶层对话API：简化对话调⽤，封装流式/⾮流式统⼀调⽤逻辑 -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-client-chat</artifactId>
+            <version>${spring-ai.version}</version>
+        </dependency>
+        <!-- AI模型基础实体、注解⽀撑，为后续FunctionCall⼯具调⽤预留扩展 -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-model</artifactId>
+            <version>${spring-ai.version}</version>
+        </dependency>
+        <!-- SpringAI通⽤⼯具类、常量、公共抽象能⼒ -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-commons</artifactId>
+            <version>${spring-ai.version}</version>
+        </dependency>
+        <!-- AI请求重试组件：⽹络波动、接⼝超时⾃动重试，提升线上稳定性 -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-retry</artifactId>
+            <version>${spring-ai.version}</version>
+        </dependency>
+        <!-- SpringAI MCP 客户端：接入 MCP 协议工具服务器（stdio子进程/SSE/Streamable HTTP），
+             把社区现成工具动态挂载进对话客户端（文件系统、浏览器、搜索等），工具生态免手写 -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-mcp-client</artifactId>
+            <version>${spring-ai.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- SpringBoot打包运⾏插件，⽀持 mvn spring-boot:run ⼀键启动项⽬ -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
