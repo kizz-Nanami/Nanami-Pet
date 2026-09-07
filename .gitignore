@@ -33,6 +33,7 @@ HELP.md
 ~$*
 _tmp_*
 frontend/process-ningqi.mjs
+scripts/
 
 # ===== 系统文件 =====
 Thumbs.db
