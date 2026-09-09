@@ -17,9 +17,6 @@ cyberpet-config.json
 cyberpet-ai.json
 .cyberpet-todos.json
 
-# ===== Live2D 模型素材（版权原因不入库，见 README「模型准备」） =====
-frontend/public/live2d/
-
 # ===== IDE / 编辑器 =====
 .idea/
 .vscode/

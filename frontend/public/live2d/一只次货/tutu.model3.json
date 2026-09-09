@@ -1,0 +1,35 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "tutu.moc3",
+		"Textures": [
+			"textures/texture_00.png"
+		],
+		"Physics": "tutu.physics3.json",
+		"DisplayInfo": "tutu.cdi3.json",
+		"Expressions": [
+			{ "Name": "外套", "File": "外套.exp3.json" },
+			{ "Name": "尬住", "File": "尬住.exp3.json" },
+			{ "Name": "星星眼", "File": "星星眼.exp3.json" },
+			{ "Name": "眯眯眼", "File": "眯眯眼.exp3.json" },
+			{ "Name": "脸红", "File": "脸红.exp3.json" },
+			{ "Name": "脸黑", "File": "脸黑.exp3.json" },
+			{ "Name": "长发", "File": "长发.exp3.json" }
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		}
+	]
+}

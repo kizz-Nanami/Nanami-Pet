@@ -84,11 +84,13 @@ npm run dev:electron
 
 > 也可以直接编辑 `backend/src/main/resources/application.properties` 写入默认值，该文件中不含任何真实密钥。
 
-## 🗂 模型准备（Live2D）
+## 🗂 Live2D 模型
 
-因模型素材版权原因，仓库不随附 Live2D 模型文件。请自行获取 `.model3.json` 格式的模型，放入 `frontend/public/live2d/<模型名>/`，并在 `frontend/src/config.ts` 中登记（`modelName` = 文件夹名，`modelFile` = 模型 json 文件名）。
+仓库已随附 7 个 Live2D 模型（乐正绫、卡拉比丘、小魅魔、一只次货、鸠、六初、伊雷娜），位于 `frontend/public/live2d/`，克隆后开箱即用。默认模型与缩放参数在 `frontend/src/config.ts` 中调整。
 
-推荐使用 [Live2D 官方免费示例模型](https://www.live2d.com/en/learn/sample/)（Haru、Hiyori 等，注意其使用条款）。
+**切换 / 新增模型**：将 `.model3.json` 格式的模型文件夹放入 `frontend/public/live2d/<模型名>/`，并在 `frontend/src/config.ts` 中登记（`modelName` = 文件夹名，`modelFile` = 模型 json 文件名）；可为新模型在 `modelEmotionMaps` 中配置「情绪 → 表情」映射，未配置时回退到默认映射表。
+
+> 模型素材版权归各自作者所有，仅供个人学习交流使用；也可替换为 [Live2D 官方免费示例模型](https://www.live2d.com/en/learn/sample/)（Haru、Hiyori 等，注意其使用条款）。
 
 ## 📐 项目结构
 
@@ -106,7 +108,7 @@ Nanami/
 │   │   ├── composables/         # 语音 · 截屏 · 拖拽 · 记忆同步等组合式模块
 │   │   ├── utils/               # 情绪标签流式提取器 · 切句器
 │   │   └── App.vue
-│   └── public/live2d/           # Live2D 模型（不入库，见「模型准备」）
+│   └── public/live2d/           # Live2D 模型（7 个，随仓库分发）
 └── docs/                        # 演示动图 · 架构图等文档资源
 ```
 

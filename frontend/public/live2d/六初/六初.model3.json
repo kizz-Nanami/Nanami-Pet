@@ -1,0 +1,28 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "六初.moc3",
+		"Textures": [
+			"六初.8192/texture_00.png",
+			"六初.8192/texture_01.png"
+		],
+		"Physics": "六初.physics3.json",
+		"DisplayInfo": "六初.cdi3.json",
+		"Expressions": [
+			{ "Name": "shuiyin", "File": "shuiyin.exp3.json" },
+			{ "Name": "tou", "File": "tou.exp3.json" }
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

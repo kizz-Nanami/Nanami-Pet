@@ -1,0 +1,55 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "baimeimo.moc3",
+		"Textures": [
+			"baimeimo.4096/texture_00.png",
+			"baimeimo.4096/texture_01.png",
+			"baimeimo.4096/texture_02.png",
+			"baimeimo.4096/texture_03.png",
+			"baimeimo.4096/texture_04.png",
+			"baimeimo.4096/texture_05.png",
+			"baimeimo.4096/texture_06.png",
+			"baimeimo.4096/texture_07.png"
+		],
+		"Physics": "baimeimo.physics3.json",
+		"DisplayInfo": "baimeimo.cdi3.json",
+		"Expressions": [
+			{ "Name": "bai", "File": "bai.exp3.json" },
+			{ "Name": "baiduanfa", "File": "baiduanfa.exp3.json" },
+			{ "Name": "baipanfa", "File": "baipanfa.exp3.json" },
+			{ "Name": "buan", "File": "buan.exp3.json" },
+			{ "Name": "hailian", "File": "hailian.exp3.json" },
+			{ "Name": "heichangfa", "File": "heichangfa.exp3.json" },
+			{ "Name": "heiduanfa", "File": "heiduanfa.exp3.json" },
+			{ "Name": "heipanfa", "File": "heipanfa.exp3.json" },
+			{ "Name": "heisi", "File": "heisi.exp3.json" },
+			{ "Name": "hexie", "File": "hexie.exp3.json" },
+			{ "Name": "huatong", "File": "huatong.exp3.json" },
+			{ "Name": "jiao", "File": "jiao.exp3.json" },
+			{ "Name": "lianhong", "File": "lianhong.exp3.json" },
+			{ "Name": "majia", "File": "majia.exp3.json" },
+			{ "Name": "paizi", "File": "paizi.exp3.json" },
+			{ "Name": "pijian", "File": "pijian.exp3.json" },
+			{ "Name": "qianqi", "File": "qianqi.exp3.json" },
+			{ "Name": "shanzi", "File": "shanzi.exp3.json" },
+			{ "Name": "shengqi", "File": "shengqi.exp3.json" },
+			{ "Name": "wuyu", "File": "wuyu.exp3.json" },
+			{ "Name": "xie", "File": "xie.exp3.json" },
+			{ "Name": "yanjing", "File": "yanjing.exp3.json" },
+			{ "Name": "yanlei", "File": "yanlei.exp3.json" }
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}

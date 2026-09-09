@@ -1,0 +1,90 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "卡拉.moc3",
+		"Textures": [
+			"卡拉.8192/texture_00.png"
+		],
+		"Physics": "卡拉.physics3.json",
+		"DisplayInfo": "卡拉.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "Scene1",
+				"File": "expressions/Scene1.exp3.json"
+			},
+			{
+				"Name": "aixinyan",
+				"File": "aixinyan.exp3.json"
+			},
+			{
+				"Name": "duzui",
+				"File": "duzui.exp3.json"
+			},
+			{
+				"Name": "guzui",
+				"File": "guzui.exp3.json"
+			},
+			{
+				"Name": "han",
+				"File": "han.exp3.json"
+			},
+			{
+				"Name": "huatong",
+				"File": "huatong.exp3.json"
+			},
+			{
+				"Name": "jiantou",
+				"File": "jiantou.exp3.json"
+			},
+			{
+				"Name": "kongbai",
+				"File": "kongbai.exp3.json"
+			},
+			{
+				"Name": "lei",
+				"File": "lei.exp3.json"
+			},
+			{
+				"Name": "lianhei",
+				"File": "lianhei.exp3.json"
+			},
+			{
+				"Name": "lianhong",
+				"File": "lianhong.exp3.json"
+			},
+			{
+				"Name": "lianqing",
+				"File": "lianqing.exp3.json"
+			},
+			{
+				"Name": "xie",
+				"File": "xie.exp3.json"
+			},
+			{
+				"Name": "xingxingyan",
+				"File": "xingxingyan.exp3.json"
+			},
+			{
+				"Name": "yuanquanyan",
+				"File": "yuanquanyan.exp3.json"
+			},
+			{
+				"Name": "yun",
+				"File": "yun.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}
