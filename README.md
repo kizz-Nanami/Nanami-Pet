@@ -75,7 +75,7 @@ mvn spring-boot:run        # 或 ./mvnw spring-boot:run
 ```bash
 cd frontend
 npm install
-npm run dev
+npm run dev:electron
 ```
 
 ### 3. 配置 AI 服务
