@@ -1,11 +1,36 @@
 # Nanami 🐋
 
-> 基于大语言模型的多模态智能桌面助手（AI 桌宠）
-> 实时语音对话 · Live2D 表情联动 · 多级记忆体系 · 工具调用与 MCP 扩展
+> A multimodal LLM desktop pet with real-time voice, Live2D emotion sync, cross-session memory and MCP tooling.
+
+基于大语言模型的多模态智能桌面助手（AI 桌宠）
+实时语音对话 · Live2D 表情联动 · 多级记忆体系 · 工具调用与 MCP 扩展
+
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![JDK](https://img.shields.io/badge/JDK-17%2B-orange)
+![Spring Boot 3](https://img.shields.io/badge/Spring%20Boot-3-6DB33F)
+![Electron](https://img.shields.io/badge/Electron-9FEAF9?logo=electron&logoColor=black)
+![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D)
+![MCP](https://img.shields.io/badge/MCP-Supported-7C3AED)
 
 **Nanami（七海）**——名字取自角色「小柒」之「七」，与鲸鱼栖居之「海」。
 
+## 为什么做
+
+市面上的 AI 助手大多活在浏览器标签页里：没有形象、没有长期记忆，每次对话都是初次见面；传统桌宠有形象，却完全不懂你。**Nanami 想把两者缝起来——一个住在你桌面上、记得住你的 AI 伙伴。**
+
+全部 AI 服务走 OpenAI 兼容协议，对话 / 视觉 / TTS / ASR 四组能力可自由切换任意厂商；对话数据与记忆完全落在本地，不给云端留一份。
+
 ![Nanami 演示](docs/demo.gif)
+
+## 它和已有产品的差别
+
+| 能力 | 网页 ChatBot | 传统桌宠 | Nanami |
+|---|---|---|---|
+| 有形象、有陪伴感 | ✗ | ✓ | Live2D + 表情随语义联动 |
+| 跨会话长期记忆 | 多数无 | ✗ | 两级记忆 + 视觉记忆 |
+| 实时语音对话 | 少数 | ✗ | 流式链路，端到端首响 ~1.5s |
+| 调用工具 / 操作电脑 | 受限 | ✗ | Function Call + MCP 动态挂载 |
+| 数据留在本地 | ✗ | ✓ | 配置与记忆全本地 |
 
 ## ✨ 功能特性
 
@@ -41,7 +66,7 @@
 ### 1. 启动后端（端口 8888）
 
 ```bash
-cd cs
+cd backend
 mvn spring-boot:run        # 或 ./mvnw spring-boot:run
 ```
 
@@ -57,7 +82,7 @@ npm run dev
 
 首次启动后，右键托盘图标 →「配置」，分别填入**对话 / 视觉 / TTS / ASR** 四组服务的 Base URL、API Key 与模型名（OpenAI 兼容协议即可，阿里百炼 / 智谱 / SiliconFlow 等均可）。配置保存于 `~/.cyberpet-ai.json`，保存后热生效，无需重启。
 
-> 也可以直接编辑 `cs/src/main/resources/application.properties` 写入默认值，该文件中不含任何真实密钥。
+> 也可以直接编辑 `backend/src/main/resources/application.properties` 写入默认值，该文件中不含任何真实密钥。
 
 ## 🗂 模型准备（Live2D）
 
@@ -69,7 +94,7 @@ npm run dev
 
 ```
 Nanami/
-├── cs/                          # Spring Boot 后端（端口 8888）
+├── backend/                     # Spring Boot 后端（端口 8888）
 │   └── src/main/java/com/example/cs/
 │       ├── controller/          # 对话 / 记忆 / 配置 REST 接口
 │       ├── service/             # ChatService · MemoryService · McpService · TtsService · AsrService · AiConfigService
@@ -82,13 +107,30 @@ Nanami/
 │   │   ├── utils/               # 情绪标签流式提取器 · 切句器
 │   │   └── App.vue
 │   └── public/live2d/           # Live2D 模型（不入库，见「模型准备」）
-└── docs/                        # 架构图等文档资源
+└── docs/                        # 演示动图 · 架构图等文档资源
 ```
 
 ## 🧪 测试与实测
 
 - **功能验证**：多轮对话 / 语音链路 / 记忆召回 / 工具调用 / 表情联动 / 配置热切换等核心功能均经手工验证通过
 - **性能实测（本机）**：语音识别延迟 ~400ms ｜ 端到端首响 ~1.5s ｜ 句间播报间隔 300ms ｜ 后端冷启动至就绪 ~3s（具体数值因机器与网络环境而异）
+
+## 🗺 Roadmap
+
+- [ ] macOS / Linux 支持（当前仅 Windows）
+- [ ] 本地模型支持（Ollama / llama.cpp，离线可用）
+- [ ] MCP 工具服务器一键安装与插件化市场
+- [ ] 记忆管理面板（可视化查看 / 编辑 / 删除长期记忆）
+- [ ] 主动性任务（定时提醒、日程感知、屏幕内容主动关怀）
+
+## 🔗 相关项目
+
+- [Medical-Ai](https://github.com/kizz-Nanami/Medical-Ai) —— 全本地部署、答案可溯源的医疗 RAG 问答系统（LangChain · FAISS · Qwen3）
+
+## 📮 联系方式
+
+- 邮箱：[kizzx7702@gmail.com](mailto:kizzx7702@gmail.com)
+- GitHub：[@kizz-Nanami](https://github.com/kizz-Nanami)
 
 ## 📄 License
 
